@@ -25,6 +25,19 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
     
+    func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            if response != nil {
+                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+                completion(tweets: tweets, error: nil)
+            }
+            
+        }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
+            print("error getting timeline")
+            completion(tweets: nil, error: error)
+        }
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         
@@ -47,6 +60,8 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 if response != nil {
                     let user = User(dictionary: response as! NSDictionary)
+                    User.currentUser = user
+                    self.loginCompletion!(user: user, error: nil)
                 }
                 
                 }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
@@ -54,22 +69,9 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                     self.loginCompletion?(user: nil, error: error)
             }
             
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
-                if response != nil {
-                    let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                    
-                    for tweet in tweets {
-                        print("text: \(tweet.text), created: \(tweet.createdAt)")
-                    }
-                }
-                
-                }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-                    print("error getting timeline")
-            }
-            
-            }) { (error: NSError!) -> Void in
-                print("failed to receive access token")
-                self.loginCompletion?(user: nil, error: error)
+        }) { (error: NSError!) -> Void in
+            print("failed to receive access token")
+            self.loginCompletion?(user: nil, error: error)
         }
 
     }
