@@ -23,14 +23,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // go to the login screen
             print("Current user detected")
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
-            window?.rootViewController = vc
+            let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
+            let nc = UINavigationController(rootViewController: vc)
+            window?.rootViewController = nc
         }
         return true
     }
     
     func userDidLogout() {
-        var vc = storyboard.instantiateInitialViewController()! as UIViewController
+        let vc = storyboard.instantiateInitialViewController()! as UIViewController
         window?.rootViewController = vc
     }
 

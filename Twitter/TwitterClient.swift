@@ -9,8 +9,8 @@
 import UIKit
 import BDBOAuth1Manager
 
-let twitterConsumerKey = ""
-let twitterConsumerSecret = ""
+let twitterConsumerKey = "DZvx2vdop6DQQjq2HhRpPyiny"
+let twitterConsumerSecret = "90GscU4QyqOCzVmQfVShjWhGWdhY0afO6Jrix8n2ILqnxlz6Gz"
 let twitterBaseURL = NSURL(string: "https://api.twitter.com")
 
 class TwitterClient: BDBOAuth1RequestOperationManager {
@@ -36,6 +36,28 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             print("error getting timeline")
             completion(tweets: nil, error: error)
         }
+    }
+    
+    func composeTweetWithParams(params: NSDictionary?, completion: (error: NSError?) -> ()) {
+        POST("1.1/statuses/update.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            print(response)
+            if response != nil {
+                print("tweet sent")
+                completion(error: nil)
+            }
+            
+            }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
+                print("error composibg tweet")
+                completion(error: error)
+        }
+    }
+    
+    func favoriteTweetWithParams(params: NSDictionary?, completion: (error: NSError?) -> ()) {
+        
+    }
+    
+    func retweetTweetWithParams(params: NSDictionary?, completion: (error: NSError?) -> ()) {
+        
     }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {

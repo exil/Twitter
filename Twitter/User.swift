@@ -13,7 +13,6 @@ let currentUserKey = "kCurrentUserKey"
 let userDidLoginNotification = "userDidLoginNotification"
 let userDidLogoutNotification = "userDidLogoutNotification"
 
-
 class User: NSObject {
     var name: String?
     var screenname: String?
