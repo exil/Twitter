@@ -17,6 +17,12 @@ class DetailsViewController: UIViewController {
     @IBOutlet var tweetLabel: UILabel!
     @IBOutlet var avatarImageView: UIImageView!
     @IBOutlet var retweetLabel: UILabel!
+    @IBOutlet var favCountLabel: UILabel!
+    @IBOutlet var retweetCountLabel: UILabel!
+    @IBOutlet var favImageView: UIImageView!
+    @IBOutlet var retweetImageView: UIImageView!
+    @IBOutlet var replyImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +35,13 @@ class DetailsViewController: UIViewController {
         usernameLabel.text = "@\(user.screenname!)"
         tweetLabel.text = tweet!.text
         retweetLabel.text = ""
+        
+        replyImageView.image = UIImage(named: "reply-action_0")
+        retweetImageView.image = UIImage(named: "retweet-action")
+        favImageView.image = UIImage(named: "like-action")
+        retweetCountLabel.text = String(tweet!.retweetCount!)
+        favCountLabel.text = String(tweet!.favoriteCount!)
+        //replyButton.tag = indexPath.row
 
         // Do any additional setup after loading the view.
     }

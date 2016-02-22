@@ -33,7 +33,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             }
             
         }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
-            print("error getting timeline")
+            print(error)
             completion(tweets: nil, error: error)
         }
     }
@@ -53,11 +53,31 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
     }
     
     func favoriteTweetWithParams(params: NSDictionary?, completion: (error: NSError?) -> ()) {
-        
+        POST("1.1/favorites/create.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            print(response)
+            if response != nil {
+                print("fav made")
+                completion(error: nil)
+            }
+            
+            }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
+                print("error faving tweet")
+                completion(error: error)
+        }
     }
     
     func retweetTweetWithParams(params: NSDictionary?, completion: (error: NSError?) -> ()) {
-        
+        POST("1.1/statuses/retweet.json", parameters: params, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            print(response)
+            if response != nil {
+                print("tweet sent")
+                completion(error: nil)
+            }
+            
+            }) { (operation: AFHTTPRequestOperation?, error: NSError) -> Void in
+                print("error composibg tweet")
+                completion(error: error)
+        }
     }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {

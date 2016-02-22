@@ -21,6 +21,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet var retweetImageView: UIImageView!
     @IBOutlet var favCountLabel: UILabel!
     @IBOutlet var retweetCountLabel: UILabel!
+    @IBOutlet var replyButton: UIButton!
+    @IBOutlet var retweetButton: UIButton!
+    @IBOutlet var favoriteButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

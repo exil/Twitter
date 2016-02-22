@@ -20,6 +20,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var tweetTextView: UITextView!
     @IBOutlet var charCountLabel: UILabel!
     @IBOutlet var tweetButton: UIBarButtonItem!
+    var replyUsername: String?
+    var replyId: String?
+    let maxCharCount = 140
     
     weak var delegate: ComposeViewControllerDelegate?
     
@@ -38,6 +41,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
 
         self.navigationItem.rightBarButtonItem?.enabled = false
         
+        if replyUsername != nil {
+            tweetTextView.text = "@\(replyUsername!) "
+            charCountLabel.text = String(maxCharCount - tweetTextView.text.characters.count)
+        }
+        
         tweetTextView.becomeFirstResponder()
     }
 
@@ -49,8 +57,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func onTweet(sender: AnyObject) {
         let tweet = tweetTextView.text
-        let params = ["status": tweet]
+        var params = ["status": tweet]
         
+        if replyId != nil {
+            params["in_reply_to_status_id"] = replyId!
+        }
+            
         TwitterClient.sharedInstance.composeTweetWithParams(params) { (error) -> () in
             self.delegate?.composeViewController?(self, didComposeTweet: tweet)
             self.dismissViewControllerAnimated(true) {}
@@ -62,7 +74,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidChange(textView: UITextView) {
-        let maxCharCount = 140
         let tweet = tweetTextView.text
         let tweetCharacterCount = tweet.characters.count
         
