@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, ComposeViewControllerDelegate {
     
     var tweet: Tweet?
 
@@ -22,6 +22,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet var favImageView: UIImageView!
     @IBOutlet var retweetImageView: UIImageView!
     @IBOutlet var replyImageView: UIImageView!
+    @IBOutlet var timestampLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class DetailsViewController: UIViewController {
         print(tweet)
         avatarImageView.setImageWithURL(NSURL(string: user.profileImageUrl!)!)
         nameLabel.text = user.name
-        //timestampLabel.text = "4h"
+        timestampLabel.text = tweet!.createdAt
         usernameLabel.text = "@\(user.screenname!)"
         tweetLabel.text = tweet!.text
         retweetLabel.text = ""
@@ -46,20 +47,45 @@ class DetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func onFavorite(sender: AnyObject) {
+        let params = ["id": tweet!.id!]
+        
+        TwitterClient.sharedInstance.favoriteTweetWithParams(params) { (error) -> () in
+            self.retweetCountLabel.text = String(Int(self.favCountLabel.text!)! + 1)
+            self.favImageView.image = UIImage(named: "like-action-on")
+        }
+        
+    }
+    @IBAction func onRetweet(sender: AnyObject) {
+        let params = ["id": tweet!.id!]
+        
+        TwitterClient.sharedInstance.retweetTweetWithParams(params) { (error) -> () in
+            self.retweetCountLabel.text = String(Int(self.retweetCountLabel.text!)! + 1)
+            self.retweetImageView.image = UIImage(named: "retweet-action-on")
+        }
+    }
+    @IBAction func onReply(sender: AnyObject) {
+    
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let navigationController = segue.destinationViewController as! UINavigationController
+        let composeViewController = navigationController.topViewController as! ComposeViewController
+
+        composeViewController.replyUsername = tweet!.user!.screenname
+        composeViewController.replyId = tweet!.id
+        
+        composeViewController.delegate = self
     }
-    */
+
 
 }
