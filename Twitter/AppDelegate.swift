@@ -23,9 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if User.currentUser != nil {
             // go to the login screen
             print("Current user detected")
+            let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+            let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+            
+            menuViewController.hamburgerViewController = hamburgerViewController
+
+            hamburgerViewController.menuViewController = menuViewController
+            
+            window?.rootViewController = hamburgerViewController
+            /*
             let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsViewController")
             let nc = UINavigationController(rootViewController: vc)
-            window?.rootViewController = nc
+            window?.rootViewController = nc*/
         }
         return true
     }
