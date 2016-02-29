@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let nc = UINavigationController(rootViewController: vc)
             window?.rootViewController = nc*/
         }
+        
         return true
     }
     

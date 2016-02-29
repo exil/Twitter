@@ -13,6 +13,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet var tableView: UITableView!
     
     private var tweetsNavigationController: UIViewController!
+    private var profileNavigationController: UIViewController!
+
     var viewControllers: [UIViewController] = []
     
     var hamburgerViewController: HamburgerViewController!
@@ -26,14 +28,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         tweetsNavigationController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
+        profileNavigationController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController")
         
         viewControllers.append(tweetsNavigationController)
+        viewControllers.append(profileNavigationController)
         
+        hamburgerViewController.contentViewController = tweetsNavigationController
+
         // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        //hamburgerViewController.contentViewController = viewControllers[0]
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,8 +46,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as! MenuCell
         
-        let titles = ["Home"]
-        print("cell4row")
+        let titles = ["Timeline", "Profile"]
+
         cell.titleLabel.text = titles[indexPath.row]
         
         return cell

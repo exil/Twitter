@@ -78,9 +78,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.favImageView.image = UIImage(named: favImage)
         cell.retweetCountLabel.text = String(tweet.retweetCount!)
         cell.favCountLabel.text = String(tweet.favoriteCount!)
+        
+        // find better way to do this
         cell.replyButton.tag = indexPath.row
         cell.retweetButton.tag = indexPath.row
         cell.favoriteButton.tag = indexPath.row
+        cell.profileButton.tag = indexPath.row
+
         
         return cell
     }
@@ -164,6 +168,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             let detailsViewController = segue.destinationViewController as! DetailsViewController
             
             detailsViewController.tweet = tweet
+        } else if segue.identifier == "profileSegue" {
+            if sender!.tag != nil {
+                let tweet = tweets![sender!.tag]
+                let user = tweet.user
+            
+                let profileViewController = segue.destinationViewController as! ProfileViewController
+            
+                profileViewController.user = user
+            }
         }
     }
     

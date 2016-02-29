@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		505E4D581C746FCD00BCBB04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505E4D571C746FCD00BCBB04 /* AppDelegate.swift */; };
 		505E4D5A1C746FCD00BCBB04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 505E4D591C746FCD00BCBB04 /* ViewController.swift */; };
-		505E4D5D1C746FCD00BCBB04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505E4D5B1C746FCD00BCBB04 /* Main.storyboard */; };
 		505E4D5F1C746FCD00BCBB04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 505E4D5E1C746FCD00BCBB04 /* Assets.xcassets */; };
 		505E4D621C746FCD00BCBB04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 505E4D601C746FCD00BCBB04 /* LaunchScreen.storyboard */; };
 		505E4D6B1C74708E00BCBB04 /* twitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 505E4D6A1C74708E00BCBB04 /* twitter.m */; };
@@ -23,6 +22,8 @@
 		50B630FA1C8170050015684C /* HamburgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B630F91C8170050015684C /* HamburgerViewController.swift */; };
 		50B630FC1C8178DA0015684C /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B630FB1C8178DA0015684C /* MenuViewController.swift */; };
 		50B630FE1C81899B0015684C /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B630FD1C81899B0015684C /* MenuCell.swift */; };
+		50B631001C8235E00015684C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B630FF1C8235E00015684C /* ProfileViewController.swift */; };
+		50B631031C83CC8A0015684C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50B631011C83CC8A0015684C /* Main.storyboard */; };
 		9BD841D791CF477303696CE4 /* Pods_Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCC9848ECD28E39BB6B46E60 /* Pods_Twitter.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +33,6 @@
 		505E4D541C746FCD00BCBB04 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		505E4D571C746FCD00BCBB04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		505E4D591C746FCD00BCBB04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		505E4D5C1C746FCD00BCBB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		505E4D5E1C746FCD00BCBB04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		505E4D611C746FCD00BCBB04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		505E4D631C746FCD00BCBB04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		50B630F91C8170050015684C /* HamburgerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerViewController.swift; sourceTree = "<group>"; };
 		50B630FB1C8178DA0015684C /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		50B630FD1C81899B0015684C /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		50B630FF1C8235E00015684C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		50B631021C83CC8A0015684C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCC9848ECD28E39BB6B46E60 /* Pods_Twitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Twitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,7 +91,7 @@
 				5099C0731C74D8E000ED920D /* Models */,
 				505E4D6C1C74712500BCBB04 /* API */,
 				505E4D571C746FCD00BCBB04 /* AppDelegate.swift */,
-				505E4D5B1C746FCD00BCBB04 /* Main.storyboard */,
+				50B631011C83CC8A0015684C /* Main.storyboard */,
 				505E4D5E1C746FCD00BCBB04 /* Assets.xcassets */,
 				505E4D601C746FCD00BCBB04 /* LaunchScreen.storyboard */,
 				505E4D631C746FCD00BCBB04 /* Info.plist */,
@@ -132,6 +134,7 @@
 				5099C0A21C792FF200ED920D /* DetailsViewController.swift */,
 				50B630F91C8170050015684C /* HamburgerViewController.swift */,
 				50B630FB1C8178DA0015684C /* MenuViewController.swift */,
+				50B630FF1C8235E00015684C /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -214,9 +217,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B631031C83CC8A0015684C /* Main.storyboard in Resources */,
 				505E4D621C746FCD00BCBB04 /* LaunchScreen.storyboard in Resources */,
 				505E4D5F1C746FCD00BCBB04 /* Assets.xcassets in Resources */,
-				505E4D5D1C746FCD00BCBB04 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +282,7 @@
 				505E4D6E1C74713900BCBB04 /* TwitterClient.swift in Sources */,
 				505E4D5A1C746FCD00BCBB04 /* ViewController.swift in Sources */,
 				505E4D581C746FCD00BCBB04 /* AppDelegate.swift in Sources */,
+				50B631001C8235E00015684C /* ProfileViewController.swift in Sources */,
 				5099C09D1C783DD600ED920D /* TweetCell.swift in Sources */,
 				5099C0771C74D91200ED920D /* Tweet.swift in Sources */,
 				5099C0791C75699E00ED920D /* TweetsViewController.swift in Sources */,
@@ -294,20 +298,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		505E4D5B1C746FCD00BCBB04 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				505E4D5C1C746FCD00BCBB04 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		505E4D601C746FCD00BCBB04 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				505E4D611C746FCD00BCBB04 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		50B631011C83CC8A0015684C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				50B631021C83CC8A0015684C /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
