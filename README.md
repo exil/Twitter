@@ -1,14 +1,14 @@
-# Project 4 - *Name of App Here*
+# Project 4 - *Twitter Redux*
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total
 
 ## User Stories
 
 The following **required** functionality is completed:
 
-- [] Hamburger menu
+- [x] Hamburger menu
    - [x] Dragging anywhere in the view should reveal the menu.
-   - [ ] The menu should include links to your profile, the home timeline, and the mentions view.
+   - [x] The menu should include links to your profile, the home timeline, and the mentions view.
    - [x] The menu can look similar to the example or feel free to take liberty with the UI.
 - [x] Profile page
    - [x] Contains the user header view
@@ -35,15 +35,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-  1.
-  2.
-
+  1. Passing data to view controllers when calling instantiateViewController
+  2. Reusing individual tweet view
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![Video Walkthrough](twitter2.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
@@ -53,7 +52,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2016] [Max Pappas]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

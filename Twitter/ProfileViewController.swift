@@ -41,8 +41,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         userNameLabel.text = user?.name
         screenNameLabel.text = user?.screenname
         tweetCountLabel.text = String(user!.tweetCount!)
-        followingCountLabel.text = String(user!.followersCount!)
-        followersCountLabel.text = String(user!.followingCount!)
+        followingCountLabel.text = String(user!.followingCount!)
+        followersCountLabel.text = String(user!.followersCount!)
         
         if user?.profileImageUrl != nil {
             avatarImageView.setImageWithURL(NSURL(string: user!.profileImageUrl!)!)
