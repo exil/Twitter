@@ -14,6 +14,8 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     private var tweetsNavigationController: UIViewController!
     private var profileNavigationController: UIViewController!
+    private var mentionsNavigationController: UIViewController!
+
 
     var viewControllers: [UIViewController] = []
     
@@ -29,9 +31,14 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         tweetsNavigationController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
         profileNavigationController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController")
+        mentionsNavigationController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as! UINavigationController
+        
+        let mentionsViewController = mentionsNavigationController.childViewControllers[0] as! TweetsViewController
+        mentionsViewController.showMentions = true
         
         viewControllers.append(tweetsNavigationController)
         viewControllers.append(profileNavigationController)
+        viewControllers.append(mentionsNavigationController)
         
         hamburgerViewController.contentViewController = tweetsNavigationController
 
@@ -46,7 +53,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell") as! MenuCell
         
-        let titles = ["Timeline", "Profile"]
+        let titles = ["Timeline", "Profile", "Mentions"]
 
         cell.titleLabel.text = titles[indexPath.row]
         

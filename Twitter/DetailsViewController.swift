@@ -29,7 +29,6 @@ class DetailsViewController: UIViewController, ComposeViewControllerDelegate {
         
         let user = tweet!.user!
         
-        print(tweet)
         avatarImageView.setImageWithURL(NSURL(string: user.profileImageUrl!)!)
         nameLabel.text = user.name
         timestampLabel.text = tweet!.createdAt

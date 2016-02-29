@@ -12,6 +12,7 @@ import AFNetworking
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ComposeViewControllerDelegate {
 
     var tweets: [Tweet]?
+    var showMentions: Bool?
     
     @IBOutlet var tableView: UITableView!
     
@@ -27,10 +28,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-                    
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
+        
+        if showMentions != nil && showMentions! {
+            TwitterClient.sharedInstance.mentionsTimelineWithParams(nil) { (tweets, error) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+            }
+        } else {
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+                self.tweets = tweets
+                self.tableView.reloadData()
+            }
         }
 
         // Do any additional setup after loading the view.
@@ -153,7 +161,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             
             if sender!.tag != nil {
                 let tweet = tweets![sender!.tag]
-                print(tweet)
                 composeViewController.replyUsername = tweet.user!.screenname
                 composeViewController.replyId = tweet.id
             }

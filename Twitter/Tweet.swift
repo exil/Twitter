@@ -33,8 +33,6 @@ class Tweet: NSObject {
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         let createdAtDate = formatter.dateFromString(createdAtString!)
         createdAt = (formatter.stringFromDate(createdAtDate!) as NSString).substringWithRange(NSMakeRange(4, 6))
-        
-        print(createdAt)
     }
     
     class func tweetsWithArray(array: [NSDictionary]) -> [Tweet] {

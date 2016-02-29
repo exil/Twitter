@@ -35,6 +35,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        
         userNameLabel.text = user?.name
         screenNameLabel.text = user?.screenname
         tweetCountLabel.text = String(user!.tweetCount!)
@@ -49,7 +52,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             bannerImageView.setImageWithURL(NSURL(string: user!.profileBannerUrl!)!)
         }
         
-        var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+        let visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
         
         visualEffectView.frame = bannerImageView.bounds
         

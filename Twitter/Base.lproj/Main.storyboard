@@ -766,12 +766,12 @@
                                 <color key="textColor" red="0.51730769229999995" green="0.51730769229999995" blue="0.51730769229999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="93" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="z3E-uf-5XT">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="93" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z3E-uf-5XT">
                                 <rect key="frame" x="0.0" y="285" width="320" height="283"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="103" id="WiX-S9-BIC" customClass="TweetCell" customModule="Twitter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="320" height="103"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="103"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WiX-S9-BIC" id="8xJ-Kr-85N">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
@@ -797,7 +797,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" misplaced="YES" text="Tweet goes here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xC2-Rd-UFB">
-                                                    <rect key="frame" x="66" y="41" width="246" height="17"/>
+                                                    <rect key="frame" x="66" y="45" width="246" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -885,12 +885,12 @@
                                             <constraints>
                                                 <constraint firstItem="DWm-g8-AzN" firstAttribute="leading" secondItem="jSf-mF-5Dd" secondAttribute="trailing" constant="45" id="0kj-Ki-I8k"/>
                                                 <constraint firstItem="g1P-hu-mdN" firstAttribute="leading" secondItem="8xJ-Kr-85N" secondAttribute="leading" constant="10" id="4wx-PG-Caa"/>
+                                                <constraint firstItem="xC2-Rd-UFB" firstAttribute="top" secondItem="wso-01-SqK" secondAttribute="bottom" constant="5" id="5Fa-5F-sCI"/>
                                                 <constraint firstItem="wWR-KX-3RJ" firstAttribute="leading" secondItem="8xJ-Kr-85N" secondAttribute="leading" constant="45" id="6RE-CT-7YB"/>
                                                 <constraint firstItem="1wR-lG-188" firstAttribute="centerY" secondItem="7iW-Wy-bL3" secondAttribute="centerY" id="74e-zK-zcZ"/>
                                                 <constraint firstAttribute="trailing" secondItem="xC2-Rd-UFB" secondAttribute="trailing" constant="8" id="74o-Zf-6rJ"/>
                                                 <constraint firstItem="lGU-Kq-Yjh" firstAttribute="bottom" secondItem="8xJ-Kr-85N" secondAttribute="bottomMargin" constant="8" id="7xz-gL-8ct"/>
                                                 <constraint firstAttribute="trailing" secondItem="wso-01-SqK" secondAttribute="trailing" constant="8" id="9UZ-pM-MZe"/>
-                                                <constraint firstItem="xC2-Rd-UFB" firstAttribute="top" secondItem="cYY-E5-R1f" secondAttribute="bottom" constant="3" id="Iv3-sV-LOH"/>
                                                 <constraint firstItem="1wR-lG-188" firstAttribute="leading" secondItem="7iW-Wy-bL3" secondAttribute="trailing" constant="5" id="KQn-aF-Fhd"/>
                                                 <constraint firstItem="unN-iz-In5" firstAttribute="leading" secondItem="7uc-fn-UwX" secondAttribute="trailing" constant="45" id="Kq1-Ts-L8D"/>
                                                 <constraint firstItem="y3A-U1-zbk" firstAttribute="leading" secondItem="DWm-g8-AzN" secondAttribute="trailing" constant="5" id="Lij-hV-VLG"/>
@@ -902,13 +902,13 @@
                                                 <constraint firstItem="xC2-Rd-UFB" firstAttribute="leading" secondItem="EKy-qs-hZE" secondAttribute="trailing" constant="8" id="VLJ-r1-aLT"/>
                                                 <constraint firstItem="unN-iz-In5" firstAttribute="centerY" secondItem="lGU-Kq-Yjh" secondAttribute="centerY" id="VdM-hX-5Ot"/>
                                                 <constraint firstItem="Acq-CE-ZYO" firstAttribute="leading" secondItem="cYY-E5-R1f" secondAttribute="trailing" constant="8" id="WMZ-Pe-3mX"/>
-                                                <constraint firstItem="jSf-mF-5Dd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xC2-Rd-UFB" secondAttribute="bottom" constant="5" id="Wpu-67-8aP"/>
                                                 <constraint firstItem="EKy-qs-hZE" firstAttribute="leading" secondItem="8xJ-Kr-85N" secondAttribute="leading" constant="10" id="Zu7-rv-FA0"/>
                                                 <constraint firstItem="7uc-fn-UwX" firstAttribute="centerY" secondItem="lGU-Kq-Yjh" secondAttribute="centerY" id="bfq-9F-c0e"/>
                                                 <constraint firstItem="jSf-mF-5Dd" firstAttribute="leading" secondItem="8xJ-Kr-85N" secondAttribute="leading" constant="70" id="dPz-f6-XBt"/>
                                                 <constraint firstItem="wso-01-SqK" firstAttribute="top" secondItem="wWR-KX-3RJ" secondAttribute="bottom" constant="8" id="hOf-yV-A2Z"/>
                                                 <constraint firstItem="7uc-fn-UwX" firstAttribute="leading" secondItem="lGU-Kq-Yjh" secondAttribute="trailing" constant="45" id="hPd-qI-teN"/>
                                                 <constraint firstItem="EKy-qs-hZE" firstAttribute="top" secondItem="wWR-KX-3RJ" secondAttribute="bottom" constant="8" id="hgu-qf-kCw"/>
+                                                <constraint firstItem="unN-iz-In5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xC2-Rd-UFB" secondAttribute="bottom" constant="5" id="j5Z-1U-btA"/>
                                                 <constraint firstItem="y3A-U1-zbk" firstAttribute="centerY" secondItem="DWm-g8-AzN" secondAttribute="centerY" id="jA6-Fc-A9Q"/>
                                                 <constraint firstAttribute="bottom" secondItem="jSf-mF-5Dd" secondAttribute="bottom" constant="8" id="n8O-Kd-fgs"/>
                                                 <constraint firstItem="7iW-Wy-bL3" firstAttribute="baseline" secondItem="jSf-mF-5Dd" secondAttribute="baseline" id="qx5-kg-emH"/>
@@ -1068,6 +1068,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1PR-2a-2ei"/>
-        <segue reference="xGG-Be-S2m"/>
+        <segue reference="ZKo-TK-GQU"/>
     </inferredMetricsTieBreakers>
 </document>
